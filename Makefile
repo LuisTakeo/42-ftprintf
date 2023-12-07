@@ -6,7 +6,7 @@
 #    By: tpaim-yu <tpaim-yu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/03 17:46:05 by tpaim-yu          #+#    #+#              #
-#    Updated: 2023/12/07 17:24:03 by tpaim-yu         ###   ########.fr        #
+#    Updated: 2023/12/07 17:32:30 by tpaim-yu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,23 +29,23 @@ LIBS_PATH = ./lib/
 all: libft ${NAME}
 
 ${NAME}: ${OBJ} ${LIBS_PATH}libft.a
-	@cp ${LIBS_PATH}libft.a ${NAME}
+	cp ${LIBS_PATH}libft.a ${NAME}
 	ar rcs ${NAME} ${OBJ}
 
 
 bonus: all
 
 libft:
-	@cd ${LIBS_PATH} && ${MAKE_NOPRINT}
+	cd ${LIBS_PATH} && ${MAKE_NOPRINT}
 
 
 clean:
 	rm -f ${OBJ}
-	@cd ${LIBS_PATH} && ${MAKE_NOPRINT} $@
+	cd ${LIBS_PATH} && ${MAKE_NOPRINT} $@
 
 fclean: clean
 	rm -f ${NAME}
-	@cd ${LIBS_PATH} && ${MAKE_NOPRINT} $@
+	cd ${LIBS_PATH} && ${MAKE_NOPRINT} $@
 
 %.o:%.c
 	$(CC) $(FLAGS) -c $< -o $@ -I $(HEADER)

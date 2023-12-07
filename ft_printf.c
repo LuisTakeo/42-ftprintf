@@ -6,7 +6,7 @@
 /*   By: tpaim-yu <tpaim-yu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 12:23:21 by tpaim-yu          #+#    #+#             */
-/*   Updated: 2023/12/07 17:00:11 by tpaim-yu         ###   ########.fr       */
+/*   Updated: 2023/12/07 17:26:44 by tpaim-yu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ static void	ft_verify_flags(char flag, t_flags *flags)
 		flags->is_hash = 1;
 	if (ft_isdigit(flag))
 		flags->is_width = 1;
-
 }
 
 static int	ft_filter_to_print(const char *str, va_list args, unsigned int *i)
