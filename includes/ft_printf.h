@@ -6,7 +6,7 @@
 /*   By: tpaim-yu <tpaim-yu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 12:23:54 by tpaim-yu          #+#    #+#             */
-/*   Updated: 2023/12/05 16:05:15 by tpaim-yu         ###   ########.fr       */
+/*   Updated: 2023/12/07 16:58:37 by tpaim-yu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_flags
 	int	is_space;
 	int	is_hash;
 	int	is_plus;
+	int	is_width;
 }	t_flags;
 
 int		ft_printf(const char *str, ...);
@@ -31,5 +32,6 @@ int		ft_putnbrbase(unsigned int n, char *base_str, int is_upper, char *str);
 int		ft_putunsnbr_fd(unsigned int n, int fd);
 int		ft_putpointer_fd(unsigned long int n, char *start, int c, int fd);
 t_flags	ft_init_flags(void);
+int		ft_putstrspc_fd(const char *str, int width, int fd);
 
 #endif

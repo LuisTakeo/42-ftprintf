@@ -6,7 +6,7 @@
 #    By: tpaim-yu <tpaim-yu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/03 17:46:05 by tpaim-yu          #+#    #+#              #
-#    Updated: 2023/12/05 16:06:07 by tpaim-yu         ###   ########.fr        #
+#    Updated: 2023/12/07 17:24:03 by tpaim-yu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,14 +20,15 @@ SRC = ft_printf.c \
 				 ft_putnbrbase_fd.c \
 				 ft_putpointer_fd.c \
 				 ft_putunsnbr_fd.c \
-				 ft_init_flags.c
+				 ft_init_flags.c \
+				 ft_putstrspc_fd.c
 
 OBJ = ${SRC:%.c=%.o}
 LIBS_PATH = ./lib/
 
 all: libft ${NAME}
 
-${NAME}: ${OBJ}
+${NAME}: ${OBJ} ${LIBS_PATH}libft.a
 	@cp ${LIBS_PATH}libft.a ${NAME}
 	ar rcs ${NAME} ${OBJ}
 

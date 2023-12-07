@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putstrspc_fd.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpaim-yu <tpaim-yu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 14:01:50 by tpaim-yu          #+#    #+#             */
-/*   Updated: 2023/12/05 16:02:54 by tpaim-yu         ###   ########.fr       */
+/*   Created: 2023/12/07 16:54:50 by tpaim-yu          #+#    #+#             */
+/*   Updated: 2023/12/07 17:04:35 by tpaim-yu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/ft_printf.h"
-#include <stdio.h>
 
-int	main(void)
+int	ft_putstrspc_fd(const char *str, int width, int fd)
 {
-	ft_printf("a%    #### pb\n", "");
-	printf("a%    ####pb\n", "");
-	return (0);
+	int	len;
+
+	len = 0;
+	if (width && str)
+		len += ft_putchar_fd(' ', fd);
+	len += ft_putstr_fd(str, fd);
+	return (len);
 }

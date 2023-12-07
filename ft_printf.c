@@ -6,7 +6,7 @@
 /*   By: tpaim-yu <tpaim-yu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 12:23:21 by tpaim-yu          #+#    #+#             */
-/*   Updated: 2023/12/05 18:28:23 by tpaim-yu         ###   ########.fr       */
+/*   Updated: 2023/12/07 17:00:11 by tpaim-yu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,11 @@ static int	ft_print_flags(char c, va_list args, t_flags flags)
 					"0x", 0, 1));
 	}
 	if (c == 'X' && (flags.is_hash))
-		return (ft_putnbrbase(va_arg(args, unsigned int),
-				HEX, 1, "0X"));
+		return (ft_putnbrbase(va_arg(args, unsigned int), HEX, 1, "0X"));
 	if (c == 'x' && (flags.is_hash))
-		return (ft_putnbrbase(va_arg(args, unsigned int),
-				HEX, 0, "0x"));
+		return (ft_putnbrbase(va_arg(args, unsigned int), HEX, 0, "0x"));
+	if (c == 's' && (flags.is_width))
+		return (ft_putstrspc_fd(va_arg(args, const char *), flags.is_width, 1));
 	return (ft_filter_to_print_args(c, args));
 }
 
@@ -71,6 +71,8 @@ static void	ft_verify_flags(char flag, t_flags *flags)
 		flags->is_space = 1;
 	if (flag == '#')
 		flags->is_hash = 1;
+	if (ft_isdigit(flag))
+		flags->is_width = 1;
 
 }
 
@@ -85,15 +87,6 @@ static int	ft_filter_to_print(const char *str, va_list args, unsigned int *i)
 		*i = *i + 1;
 	}
 	return (ft_print_flags(str[*i], args, flags));
-		// if ((c == ' ') && (str[*i] == 'i' || str[*i] == 'd'))
-		// 	len += ft_putnbr_fd(va_arg(args, int), c, 1);
-		// if (c == '#' && (str[*i] == 'x' || str[*i] == 'X'))
-		// {
-		// 	if (str[*i] == 'X')
-		// 		is_upper = 1;
-		// 	len += ft_putnbrbase(va_arg(args, unsigned int),
-		// 			HEX, is_upper, "0x");
-		//
 }
 
 int	ft_printf(const char *str, ...)

@@ -6,7 +6,7 @@
 /*   By: tpaim-yu <tpaim-yu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 14:17:14 by tpaim-yu          #+#    #+#             */
-/*   Updated: 2023/12/05 16:05:02 by tpaim-yu         ###   ########.fr       */
+/*   Updated: 2023/12/07 16:00:40 by tpaim-yu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@ t_flags	ft_init_flags(void)
 	flags.is_space = 0;
 	flags.is_hash = 0;
 	flags.is_plus = 0;
+	flags.is_width = 0;
 	return (flags);
 }
